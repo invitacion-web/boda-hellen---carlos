@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="es-mx" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link rel="stylesheet" href="js/container.css">
+<title>Nuesta boda.</title>
+<style type="text/css">
+.auto-style3
+{
+	font-family: "Lucida Calligraphy";
+	font-size: 30px;
+	color: #48887B;
+}
+</style>
+</head>
+
+<body background="img/gris.jpg">
+<div align="center">
+	<img src="img/Corona.png" alt="" width="800px" height="100px"/></br>
+	<img src="img/BannerG.png" alt="" height="800 px" width="800 px"/></br></br>
+	<audio controls>
+    <source src="sound/Mi Bendicion.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+	</audio>
+	</br></br></br>	
+<div align="center">	
+	<img src="img/faltapoco.png" alt=""/>
+</div>
+	<div align="center">
+
+    <p class="auto-style3">
+        <span id="days"></span>
+        <span class="auto-style5">días / 
+        <span id="hours"></span> horas </br> 
+        <span id="minutes"></span> minutos / 
+        <span id="seconds"></span> segundos</span></br>
+    </p>
+
+</div>
+<script>
+      document.addEventListener('DOMContentLoaded', () => { 
+
+        //===
+        // VARIABLES
+        //===
+        const DATE_TARGET = new Date('12/28/2024 7:01 PM');
+        // DOM for render
+        const SPAN_DAYS = document.querySelector('span#days');
+        const SPAN_HOURS = document.querySelector('span#hours');
+        const SPAN_MINUTES = document.querySelector('span#minutes');
+        const SPAN_SECONDS = document.querySelector('span#seconds');
+        // Milliseconds for the calculations
+        const MILLISECONDS_OF_A_SECOND = 1000;
+        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
+
+        //===
+        // FUNCTIONS
+        //===
+
+        /**
+        * Method that updates the countdown and the sample
+        */
+        function updateCountdown() {
+            // Calcs
+            const NOW = new Date()
+            const DURATION = DATE_TARGET - NOW;
+            const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+            // Thanks Pablo Monteserín (https://pablomonteserin.com/cuenta-regresiva/)
+
+            // Render
+            SPAN_DAYS.textContent = REMAINING_DAYS;
+            SPAN_HOURS.textContent = REMAINING_HOURS;
+            SPAN_MINUTES.textContent = REMAINING_MINUTES;
+            SPAN_SECONDS.textContent = REMAINING_SECONDS;
+        }
+
+        //===
+        // INIT
+        //===
+        updateCountdown();
+        // Refresh every second
+        setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+    });
+    </script>
+</div>
+<div align="center">
+<img src="img/Marco_invitación.png" alt="" height="800 px" width="800 px"/>
+</div>
+</br></br>
+<div align="center">	
+	<img src="img/Recepción.png" alt="" />
+</div>
+</br></br>
+<div align="center">
+<img src="img/Salondefietas.png" alt="" alt="" height="800 px" width="800 px"/>
+</div>
+</br></br>
+</br></br>
+<div align="center">
+	<img alt="" src="img/ubi.png" height="800 px" width="800 px"/></div>
+</br></br>
+<div align="center">
+<img src="img/H1.png" alt="" height="940 px" width="800 px"/>
+</div>
+</body>
+</html>
